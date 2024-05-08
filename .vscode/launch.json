@@ -13,7 +13,8 @@
             ],
             "django": true,
             "autoStartBrowser": false,
-            "program": "C:\\VGBPython\\graphql-flask\\fatmug\\vms\\manage.py"
+            "program": "C:\\VGBPython\\graphql-flask\\fatmug\\vms\\manage.py",
+            "justMyCode": false
         }
     ]
 }
