@@ -25,9 +25,9 @@ class PurchaseOrderTests(APITestCase):
             date_joined="2024-05-04 00:00:00+05:30",
         )
         self.vendor_data = {
-            "name": "rahul",
-            "contact_details": "test contact details of rahul",
-            "address": "test address of rahul",
+            "name": "vgb",
+            "contact_details": "test contact details of vgb",
+            "address": "test address of vgb",
         }
         self.vendor = Vendor.objects.create(**self.vendor_data)
         self.model = PurchaseOrder
@@ -37,14 +37,14 @@ class PurchaseOrderTests(APITestCase):
 
         # Create a Purchase Order for testing
         self.po_data = {
-            "po_number": "PO12345",
-            "order_date": "2023-12-01T08:00:00Z",
-            "delivery_date": "2023-12-10T08:00:00Z",
-            "items": [{"item_name": "Test Item", "quantity": 5, "unit_price": 10.0}],
-            "quantity": 5,
+            "po_number": "PO1",
+            "order_date": "2024-05-08T08:00:00Z",
+            "delivery_date": "2024-05-09T08:00:00Z",
+            "items": [{"item_name": "Test Item", "quantity": 1, "unit_price": 1.0}],
+            "quantity": 1,
             "status": "pending",
             "quality_rating": None,
-            "issue_date": "2023-12-01T08:00:00Z",
+            "issue_date": "2024-05-08T08:00:00Z",
             "acknowledgment_date": None,
         }
 
@@ -61,15 +61,15 @@ class PurchaseOrderTests(APITestCase):
 
     def test_create_purchase_order(self):
         self.new_po_data = {
-            "po_number": "PO54321",
+            "po_number": "PO2",
             "vendor": self.vendor.id,
-            "order_date": "2023-12-10T14:00:00Z",
-            "delivery_date": "2023-12-20T14:00:00Z",
+            "order_date": "2024-05-08T14:00:00Z",
+            "delivery_date": "2024-05-08T14:00:00Z",
             "items": [
-                {"item_name": "Product C", "quantity": 15, "unit_price": 19.99},
-                {"item_name": "Material D", "quantity": 30, "unit_price": 7.5},
+                {"item_name": "Board", "quantity": 1, "unit_price": 1.99},
+                {"item_name": "Wood", "quantity": 1, "unit_price": 1.5},
             ],
-            "quantity": 45,
+            "quantity": 2,
             "status": "pending",
             "quality_rating": None,
             "issue_date": "2023-12-01T08:00:00Z",
@@ -84,15 +84,15 @@ class PurchaseOrderTests(APITestCase):
 
     def test_create_purchase_order_with_anonymous_user(self):
         self.new_po_data = {
-            "po_number": "PO54324",
+            "po_number": "PO3",
             "vendor": self.vendor.id,
-            "order_date": "2023-12-10T14:00:00Z",
-            "delivery_date": "2023-12-20T14:00:00Z",
+            "order_date": "2024-05-08T14:00:00Z",
+            "delivery_date": "2024-05-08T14:00:00Z",
             "items": [
-                {"item_name": "Product C", "quantity": 15, "unit_price": 19.99},
-                {"item_name": "Material D", "quantity": 30, "unit_price": 7.5},
+                {"item_name": "Edge Banding", "quantity": 1, "unit_price": 1.99},
+                {"item_name": "Glue", "quantity": 1, "unit_price": 1.5},
             ],
-            "quantity": 45,
+            "quantity": 1,
             "status": "pending",
             "quality_rating": None,
             "issue_date": "2023-12-01T08:00:00Z",
@@ -148,9 +148,9 @@ class PurchaseOrderTests(APITestCase):
 
     def test_update_purchase_order(self):
         update_data = {
-            "po_number": "PO67890",
-            "order_date": "2023-12-05T10:30:00Z",
-            "delivery_date": "2023-12-15T10:30:00Z",
+            "po_number": "PO2",
+            "order_date": "2024-12-05T10:30:00Z",
+            "delivery_date": "2024-12-15T10:30:00Z",
             "status": "completed",
         }
         detail_url = reverse(
@@ -166,9 +166,9 @@ class PurchaseOrderTests(APITestCase):
 
     def test_update_purchase_order_with_anonymous_user(self):
         update_data = {
-            "po_number": "PO67890",
-            "order_date": "2023-12-05T10:30:00Z",
-            "delivery_date": "2023-12-15T10:30:00Z",
+            "po_number": "PO2",
+            "order_date": "2024-12-05T10:30:00Z",
+            "delivery_date": "2024-12-15T10:30:00Z",
             "status": "completed",
         }
         detail_url = reverse(

@@ -25,9 +25,9 @@ class VendorModelTest(APITestCase):
             date_joined="2024-05-04 00:00:00+05:30",
         )
         self.vendor_data = dict(
-            name="rahul",
-            contact_details="test contact details of rahul",
-            address="test address of rahul",
+            name="vgb",
+            contact_details="test contact details of vgb",
+            address="test address of vgb",
             on_time_delivery_rate=0.85,
             quality_rating_avg=4.2,
             average_response_time=timedelta(days=2).total_seconds(),
@@ -63,9 +63,9 @@ class VendorModelTest(APITestCase):
 
     def test_create_vendor(self):
         new_vendor_data = {
-            "name": "mahesh",
-            "contact_details": "test contact details of mahesh",
-            "address": "test address of mahesh",
+            "name": "vgb",
+            "contact_details": "test contact details of vgb",
+            "address": "test address of vgb",
         }
         response = self.client.post(
             self.vendor_create_url, data=new_vendor_data, format="json"
@@ -75,9 +75,9 @@ class VendorModelTest(APITestCase):
 
     def test_create_vendors_with_anonymous_user(self):
         new_vendor_data = {
-            "name": "mahesh",
-            "contact_details": "test contact details of mahesh",
-            "address": "test address of mahesh",
+            "name": "vgb",
+            "contact_details": "test contact details of vgb",
+            "address": "test address of vgb",
         }
         response = self.anonymous_client.post(
             self.vendor_create_url, data=new_vendor_data, format="json"
@@ -116,9 +116,9 @@ class VendorModelTest(APITestCase):
 
     def test_update_vendor(self):
         update_data = {
-            "name": "vijay",
-            "contact_details": "test contact details of vijay",
-            "address": "test address of vijay",
+            "name": "vgb",
+            "contact_details": "test contact details of vgb",
+            "address": "test address of vgb",
         }
         detail_url = reverse("vendors:vendor-actions", args=[self.vendor.id])
         response = self.client.put(detail_url, data=update_data, format="json")
@@ -128,9 +128,9 @@ class VendorModelTest(APITestCase):
 
     def test_update_vendor_with_anonymous_user(self):
         update_data = {
-            "name": "vijay",
-            "contact_details": "test contact details of vijay",
-            "address": "test address of vijay",
+            "name": "vgb",
+            "contact_details": "test contact details of vgb",
+            "address": "test address of vgb",
         }
         detail_url = reverse("vendors:vendor-actions", args=[self.vendor.id])
         response = self.anonymous_client.put(
